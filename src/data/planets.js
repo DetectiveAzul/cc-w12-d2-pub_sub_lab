@@ -1,3 +1,5 @@
+const PubSub = require('../helpers/pub_sub.js');
+
 const planets = [
   {
     name: 'Mercury',
@@ -81,4 +83,24 @@ const planets = [
   }
 ];
 
+const Planets = function(planets) {
+  this.planets = planets;
+};
+
+Planets.prototype.bindEvents = function() {
+  PubSub.subscribe('PlanetMenu:click', (event) => {
+    planetName = event.detail;
+    const planet = this.getPlanet(planetName);
+    PubSub.publish('Planets:planet-ready', planet);
+  });
+
+};
+
+Planets.prototype.getPlanet = function(planetName) {
+  for (planet of planets) {
+    if (planet.name === planetName) return planet;
+  };
+};
+
 module.exports = planets;
+module.exports = Planets;
