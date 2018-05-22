@@ -17,7 +17,7 @@ PlanetInfo.prototype.render = function (planet) {
   //   this.element.appendChild(planetLine);
   // }
   const infoParagraph = document.createElement('p');
-  infoParagraph.textContent = `${planet.name}, has an orbit of '${planet.orbit}' and the day is ${planet.day} earth days. It has a surface area of ${planet.surfaceArea}, and a volume of ${planet.volume}. The gravity is ${planet.gravity} of earth's gravity. It has ${planet.moons}.`;
+  infoParagraph.textContent = `${planet.name}, has an orbit of '${planet.orbit}' and the day is ${planet.day} earth days. It has a surface area of ${planet.surfaceArea}, and a volume of ${planet.volume}. The gravity is ${planet.gravity} of earth's gravity. It has ${planet.moons} moons.`;
   const planetImage = document.createElement('img');
   planetImage.src = `${planet.image}`;
   this.element.innerHTML = '';
